@@ -1,425 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Reports – CA Prakash M Oswal & Co.</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #f7f6f2;
-      --surface: #ffffff;
-      --surface-alt: #f0eee8;
-      --border: #ddd7cc;
-      --text: #26231b;
-      --text-muted: #77736a;
-      --primary: #002855;
-      --primary-dark: #003d7a;
-      --accent: #ff7f32;
-      --radius: 10px;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - CA Prakash M Oswal & Co.</title>
+    <link rel="icon" type="image/x-icon" href="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/47f7f2f4-2c7f-44f6-8a82-03a6b83ead86">
+    <link rel="shortcut icon" type="image/x-icon" href="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/47f7f2f4-2c7f-44f6-8a82-03a6b83ead86">
+    <link rel="apple-touch-icon" href="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/47f7f2f4-2c7f-44f6-8a82-03a6b83ead86">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+        :root {
+            --primary-blue: #002855;
+            --secondary-blue: #003d7a;
+            --accent-blue: #0056a8;
+            --light-blue: #e3f2fd;
+            --accent-orange: #ff7f32;
+            --text-dark: #1a1a1a;
+            --text-gray: #666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --gradient-start: #002855;
+            --gradient-mid: #003d7a;
+            --gradient-end: #0056a8;
+        }
 
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: var(--white);
+        }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
 
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(247, 246, 242, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
+        .logo {
+            height: 60px;
+            width: auto;
+        }
 
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.8rem 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    .brand-title {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-    }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--secondary-blue);
+        }
 
-    .brand-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-blue);
+        }
 
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      font-size: 0.9rem;
-    }
+        .hero {
+            margin-top: 90px;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            min-height: 430px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .nav-link {
-      position: relative;
-      padding-bottom: 0.1rem;
-    }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 86, 168, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 61, 122, 0.3) 0%, transparent 50%);
+            z-index: 0;
+        }
 
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.2s ease-out;
-    }
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
 
-    .nav-link:hover::after {
-      width: 100%;
-    }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
 
-    .nav-reports-btn {
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--primary);
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 0.85rem;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0, 40, 85, 0.18);
-      transition: background 0.2s ease-out, transform 0.1s ease-out,
-        box-shadow 0.2s ease-out;
-    }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 700px;
+        }
 
-    .nav-reports-btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(0, 40, 85, 0.25);
-    }
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.05rem;
+        }
 
-    main {
-      flex: 1;
-    }
+        .cta-button:hover {
+            background: #e66e28;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 127, 50, 0.4);
+        }
 
-    .hero {
-      max-width: 1100px;
-      margin: 1.8rem auto 1.8rem;
-      padding: 0 1.5rem;
-    }
+        .hero-panel {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
 
-    .hero-eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.3rem;
-    }
+        .hero-panel h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
 
-    .hero-heading {
-      font-size: 1.8rem;
-      margin-bottom: 0.4rem;
-    }
+        .hero-panel ul {
+            list-style: none;
+        }
 
-    .hero-sub {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      max-width: 36rem;
-      margin-bottom: 1.4rem;
-    }
+        .hero-panel li {
+            margin-bottom: 0.9rem;
+            padding-left: 1.5rem;
+            position: relative;
+            opacity: 0.95;
+        }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+        .hero-panel li::before {
+            content: "•";
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
 
-    .hero-tag {
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      background: var(--surface-alt);
-      border: 1px solid var(--border);
-    }
+        .stats {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+            padding: 4rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
 
-    .section {
-      padding: 0 1.5rem 2.2rem;
-    }
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            z-index: 0;
+        }
 
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            position: relative;
+            z-index: 1;
+        }
 
-    .reports-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 1.8rem;
-      align-items: flex-start;
-    }
+        .stat-card {
+            text-align: center;
+            color: var(--white);
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
 
-    .report-card {
-      background: var(--surface);
-      border-radius: 14px;
-      padding: 1.2rem 1.1rem;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      font-size: 0.9rem;
-    }
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
 
-    .report-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .report-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.8rem;
-    }
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
 
-    .report-description {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      margin-bottom: 1.1rem;
-    }
+        .reports-section {
+            padding: 5rem 2rem;
+            background: var(--bg-light);
+        }
 
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      padding: 0.6rem 1.2rem;
-      border-radius: 999px;
-      border: none;
-      background: var(--primary);
-      color: #ffffff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0, 40, 85, 0.25);
-      transition: background 0.2s ease-out, transform 0.1s ease-out,
-        box-shadow 0.2s ease-out;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0, 40, 85, 0.32);
-    }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            position: relative;
+        }
 
-    .btn-secondary {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.35rem;
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      cursor: pointer;
-      transition: background 0.2s ease-out, border-color 0.2s ease-out;
-    }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-orange);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
 
-    .btn-secondary:hover {
-      background: var(--surface-alt);
-      border-color: var(--primary);
-    }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            max-width: 750px;
+            margin: 0 auto 3rem;
+        }
 
-    .report-sidebar {
-      display: grid;
-      gap: 0.8rem;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-    }
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
 
-    .sidebar-card {
-      background: var(--surface);
-      border-radius: 12px;
-      padding: 0.9rem 0.9rem;
-      border: 1px solid var(--border);
-    }
+        .report-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--accent-orange);
+            transition: all 0.3s ease;
+        }
 
-    .sidebar-card h3 {
-      font-size: 0.9rem;
-      margin-bottom: 0.25rem;
-      color: var(--text);
-    }
+        .report-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
 
-    footer {
-      border-top: 1px solid var(--border);
-      margin-top: 1rem;
-    }
+        .report-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
 
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.9rem 1.5rem 1.2rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+        .report-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
 
-    @media (max-width: 880px) {
-      .reports-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
+        .report-meta {
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
 
-    @media (max-width: 640px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.4rem;
-      }
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-      .hero {
-        margin-top: 1.2rem;
-      }
-    }
-  </style>
+        .report-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .report-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .secondary-btn {
+            display: inline-block;
+            background: transparent;
+            color: var(--primary-blue);
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .secondary-btn:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .insights-section {
+            padding: 5rem 2rem;
+            background: var(--white);
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .insight-card {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .insight-card i {
+            color: var(--accent-orange);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .insight-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .insight-card p {
+            color: var(--text-gray);
+        }
+
+        .contact-strip {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
+            padding: 4rem 2rem;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .contact-strip h2 {
+            font-size: 2.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-strip p {
+            max-width: 750px;
+            margin: 0 auto 1.8rem;
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        footer {
+            background: #0f172a;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .hero-container,
+            .reports-grid,
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                right: 1rem;
+                background: var(--white);
+                flex-direction: column;
+                width: 220px;
+                padding: 1rem;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+                border-radius: 10px;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero {
+                padding: 3rem 1.2rem;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .report-actions {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="page">
     <header>
-      <div class="nav">
-        <div class="brand">
-          <div class="brand-title">CA PRAKASH M OSWAL & CO.</div>
-          <div class="brand-sub">Chartered Accountants · Pune</div>
-        </div>
-        <div class="nav-links">
-          <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#services" class="nav-link">Services</a>
-          <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#about" class="nav-link">About</a>
-          <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#contact" class="nav-link">Contact</a>
-          <!-- Right-most: current page -->
-          <a href="reports.html" class="nav-reports-btn">Reports</a>
-        </div>
-      </div>
+        <nav>
+            <img src="PMO_Logo__1_-removebg-preview.png" alt="CA Prakash M Oswal & Co." class="logo">
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#home">Home</a></li>
+                <li><a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#services">Services</a></li>
+                <li><a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#about">About</a></li>
+                <li><a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#contact">Contact</a></li>
+                <li><a href="reports.html" class="active">Reports</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="hero-eyebrow">Reports & Thought Leadership</div>
-          <h1 class="hero-heading">Internal Audit in Real Life – Practical Report</h1>
-          <p class="hero-sub">
-            A practitioner’s view on how internal audit actually works inside organisations –
-            beyond textbook definitions – with a focus on process, risk, controls, and value
-            addition.
-          </p>
-          <div class="hero-meta">
-            <span class="hero-tag">Internal Audit</span>
-            <span class="hero-tag">Practical Report</span>
-            <span class="hero-tag">PDF</span>
-          </div>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Reports.<br>Practical Insight, Grounded in Real Work</h1>
+                <p>Explore practical reports authored from real professional experience, designed to help businesses, finance teams, and stakeholders understand audit, controls, and governance in a clear and applicable way.</p>
+                <a href="#reports-list" class="cta-button">Explore Reports</a>
+            </div>
+            <div class="hero-panel">
+                <h3>What you will find here</h3>
+                <ul>
+                    <li>Practical reports rooted in real assignments and implementation experience.</li>
+                    <li>Clear writing focused on applicability, not only theory.</li>
+                    <li>A growing library covering internal audit, controls, risk, and related areas.</li>
+                </ul>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <section class="section">
-        <div class="section-inner">
-          <div class="reports-grid">
-            <article class="report-card">
-              <h2 class="report-title">
-                Internal Audit in Real Life – Practical Report
-              </h2>
-              <p class="report-meta">
-                Category: Internal Audit · Format: PDF
-              </p>
-              <p class="report-description">
-                This report walks through the internal audit lifecycle as it plays out in real
-                organisations – from understanding the business and risk landscape, to planning
-                fieldwork, executing tests, interacting with process owners, and converting
-                observations into practical, accepted recommendations.
-              </p>
-              <p class="report-description">
-                It is designed for promoters, finance leaders, internal auditors, and students
-                who want an implementable, ground-level view of internal audit – not just
-                theoretical frameworks. The tone is conversational and example-driven, drawing
-                from real assignments handled by the firm.
-              </p>
-              <!-- IMPORTANT: put the PDF file in the same folder with this exact name or update the href -->
-              <a
-                href="Internal-Audit-in-Real-Life-Final.pdf"
-                class="btn-primary"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View PDF report
-              </a>
-            </article>
-
-            <aside class="report-sidebar">
-              <div class="sidebar-card">
-                <h3>How to use this report</h3>
-                <p>
-                  Share it with your internal teams, audit committee, or process owners to
-                  align expectations on what a meaningful internal audit engagement should
-                  deliver.
-                </p>
-              </div>
-              <div class="sidebar-card">
-                <h3>Future reports</h3>
-                <p>
-                  Additional reports on governance, risk management, controls, and taxation
-                  can be added on this page as they are authored. Each new report can be
-                  listed below with a similar card and download link.
-                </p>
-              </div>
-            </aside>
-          </div>
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">01</div>
+                <div class="stat-label">Published Report</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Practical Orientation</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">Real</div>
+                <div class="stat-label">Field Experience Based</div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
+
+    <section class="reports-section" id="reports-list">
+        <div class="container">
+            <h2 class="section-title">Featured Reports</h2>
+            <p class="section-subtitle">
+                Thoughtful and experience-driven reports that simplify complex business and audit matters into practical reading for clients, professionals, and teams.
+            </p>
+
+            <div class="reports-grid">
+                <div class="report-card animate-on-scroll">
+                    <div class="report-icon">
+                        <i class="fas fa-file-shield"></i>
+                    </div>
+                    <h3>Internal Audit in Real Life</h3>
+                    <div class="report-meta">Internal Audit Report · PDF</div>
+                    <p>
+                        A practical report on how internal audit works in actual organisations, including business understanding, process walkthroughs, risk identification, testing, observations, reporting, and value creation beyond checklist compliance.
+                    </p>
+                    <div class="report-actions">
+                        <a href="Internal-Audit-in-Real-Life-Final.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">View Report</a>
+                        <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#contact" class="secondary-btn">Enquire About Internal Audit</a>
+                    </div>
+                </div>
+
+                <div class="report-card animate-on-scroll">
+                    <div class="report-icon">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3>More Reports Coming Soon</h3>
+                    <div class="report-meta">Thought Leadership Library</div>
+                    <p>
+                        Future reports can be added here on internal controls, risk management, SOP reviews, tax process reviews, finance transformation, and governance-oriented advisory topics.
+                    </p>
+                    <div class="report-actions">
+                        <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#contact" class="secondary-btn">Request a Topic</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Why this page matters</h2>
+            <p class="section-subtitle">
+                These reports are meant to bridge the gap between formal professional language and what management teams actually need to understand and act on.
+            </p>
+
+            <div class="insights-grid">
+                <div class="insight-card animate-on-scroll">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Practical understanding</h3>
+                    <p>Reports are written to be useful for real decision-making, not just technical reference.</p>
+                </div>
+                <div class="insight-card animate-on-scroll">
+                    <i class="fas fa-building"></i>
+                    <h3>Business relevance</h3>
+                    <p>The focus stays on how controls, risks, and processes affect real organisations and teams.</p>
+                </div>
+                <div class="insight-card animate-on-scroll">
+                    <i class="fas fa-chart-column"></i>
+                    <h3>Professional credibility</h3>
+                    <p>Publishing structured reports strengthens trust and shows the depth of the firm’s thinking and execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-strip">
+        <div class="container">
+            <h2>Need a similar internal audit engagement?</h2>
+            <p>
+                If you are evaluating your internal controls, risk areas, or process effectiveness, connect with us for a practical internal audit approach tailored to your organisation.
+            </p>
+            <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
 
     <footer>
-      <div class="footer-inner">
-        <div>© <span id="year"></span> CA Prakash M Oswal & Co. All rights reserved.</div>
-        <div>Internal audit, risk, and controls – practical insights from real assignments</div>
-      </div>
+        <p>&copy; 2026 CA Prakash M Oswal & Co. All rights reserved.</p>
     </footer>
-  </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

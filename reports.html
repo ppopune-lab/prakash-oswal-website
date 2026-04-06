@@ -39,6 +39,7 @@
             overflow-x: hidden;
         }
 
+        /* Header */
         header {
             background: var(--white);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -89,6 +90,7 @@
             color: var(--primary-blue);
         }
 
+        /* Hero Section */
         .hero {
             margin-top: 90px;
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
@@ -164,6 +166,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
+        /* Statistics Section */
         .stats {
             background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
             padding: 4rem 2rem;
@@ -225,6 +228,7 @@
             font-weight: 500;
         }
 
+        /* Services Section */
         .services {
             padding: 5rem 2rem;
             background: var(--white);
@@ -320,6 +324,7 @@
         .service-vcfo     { background: linear-gradient(145deg, #f57c00, #e65100); }
         .service-ancil    { background: linear-gradient(145deg, #455a64, #263238); }
 
+        /* About Section */
         .about {
             background: var(--bg-light);
             padding: 5rem 2rem;
@@ -414,6 +419,7 @@
             margin-bottom: 1rem;
         }
 
+        /* Contact Section */
         .contact {
             padding: 5rem 2rem;
             background: var(--white);
@@ -510,6 +516,7 @@
             box-shadow: 0 10px 30px rgba(0,40,85,0.18);
         }
 
+        /* Footer */
         footer {
             background: var(--primary-blue);
             color: var(--white);
@@ -521,6 +528,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Responsive Design */
         @media (max-width: 900px) {
             .mobile-menu-btn {
                 display: block;
@@ -574,6 +582,7 @@
             }
         }
 
+        /* Animations */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -582,6 +591,7 @@
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <nav>
             <img src="PMO_Logo__1_-removebg-preview.png" alt="CA Prakash M Oswal & Co." class="logo">
@@ -596,42 +606,45 @@
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-container">
             <div class="hero-content">
                 <h1>Internal Audit Reports.<br>Practical Insight, Real-World Perspective</h1>
-                <p>Explore practical reports and thought leadership published by CA Prakash M Oswal & Co., starting with Internal Audit in Real Life.</p>
-                <a href="Internal-Audit-in-Real-Life-Final.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">View Report</a>
+                <p>Access our published reports and practical resources, starting with Internal Audit in Real Life. This page uses the same original design as the main website with only the content updated.</p>
+                <a href="Internal-Audit-in-Real-Life-Final.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">View Internal Audit Report</a>
             </div>
             <img src="To be put beside legacy expertise.png" alt="Professional Business Services" class="hero-image">
         </div>
     </section>
 
+    <!-- Statistics Section -->
     <section class="stats">
         <div class="stats-container">
             <div class="stat-card animate-on-scroll">
-                <div class="stat-number">01</div>
-                <div class="stat-label">Published Report</div>
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Years Experience</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Satisfied Clients</div>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Available</div>
             </div>
             <div class="stat-card animate-on-scroll">
                 <div class="stat-number">100%</div>
                 <div class="stat-label">Practical Focus</div>
             </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number">Real</div>
-                <div class="stat-label">Experience Based</div>
-            </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number">More</div>
-                <div class="stat-label">Reports Coming</div>
-            </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="services" id="services">
         <div class="container">
-            <h2 class="section-title">Reports Library</h2>
-            <p class="section-subtitle">Practical reports and thought leadership from CA Prakash M Oswal & Co.</p>
+            <h2 class="section-title">Our Reports</h2>
+            <p class="section-subtitle">Reports and practical thought leadership from CA Prakash M Oswal & Co.</p>
             
             <div class="services-grid">
                 <div class="service-card service-audit animate-on-scroll">
@@ -644,26 +657,26 @@
 
                 <div class="service-card service-tax animate-on-scroll">
                     <div class="service-icon-wrapper">
-                        <i class="fas fa-folder-open"></i>
+                        <i class="fas fa-file-pdf"></i>
                     </div>
-                    <h3>More Reports Coming Soon</h3>
-                    <p>This section can later include reports on internal controls, SOP reviews, governance, compliance, taxation, and other advisory topics.</p>
+                    <h3>Download Report</h3>
+                    <p>Open the Internal Audit report in PDF format for easy viewing, sharing, and downloading by clients, teams, and stakeholders.</p>
                 </div>
 
                 <div class="service-card service-account animate-on-scroll">
                     <div class="service-icon-wrapper">
-                        <i class="fas fa-file-pdf"></i>
+                        <i class="fas fa-users"></i>
                     </div>
-                    <h3>Report Format</h3>
-                    <p>PDF format for easy viewing, sharing, and downloading by clients, teams, and stakeholders.</p>
+                    <h3>Who Should Read It</h3>
+                    <p>Promoters, finance leaders, internal auditors, management teams, and students looking for practical insights.</p>
                 </div>
 
                 <div class="service-card service-internal animate-on-scroll">
                     <div class="service-icon-wrapper">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-building-shield"></i>
                     </div>
-                    <h3>Intended Readers</h3>
-                    <p>Promoters, finance leaders, internal auditors, management teams, and students looking for practical insights.</p>
+                    <h3>Real-World Focus</h3>
+                    <p>The report explains how internal audit actually works in organisations beyond textbook definitions and checklist-based understanding.</p>
                 </div>
 
                 <div class="service-card service-vcfo animate-on-scroll">
@@ -676,15 +689,16 @@
 
                 <div class="service-card service-ancil animate-on-scroll">
                     <div class="service-icon-wrapper">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-folder-open"></i>
                     </div>
-                    <h3>Future Additions</h3>
-                    <p>As more reports are published, additional cards can be added here without changing the website design.</p>
+                    <h3>More Reports Coming</h3>
+                    <p>As more reports are published, additional resources can be added here without changing the website design language.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-container">
             <div class="about-card animate-on-scroll">
@@ -704,6 +718,7 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
             <div class="contact-info">
@@ -811,36 +826,4 @@
                         <label for="message" style="display: block; margin-bottom: 0.5rem; color: #333; font-weight: 500;">Message / Requirements</label>
                         <textarea id="message" name="message" rows="5" 
                                   style="width: 100%; padding: 0.75rem; border: 1px solid #d0d7de; border-radius: 8px; background: #fff; color: #333; font-size: 0.95rem; font-family: inherit; resize: vertical;"
-                                  placeholder="Share brief details about your requirements (optional)"></textarea>
-                    </div>
-
-                    <div style="display: none;">
-                        <label for="_gotcha">Leave this empty</label>
-                        <input id="_gotcha" name="_gotcha" type="text">
-                    </div>
-
-                    <div style="display:flex; flex-direction:column; gap:1rem;">
-                        <a href="Internal-Audit-in-Real-Life-Final.pdf" target="_blank" rel="noopener noreferrer" class="cta-button" style="width: 100%; text-align:center;">View Internal Audit Report</a>
-                        <button type="submit" class="cta-button" style="width: 100%; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));">
-                            Submit Enquiry
-                        </button>
-                    </div>
-
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); text-align: center;">
-                        By submitting this form, you consent to us contacting you regarding your enquiry.
-                    </p>
-                </form>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-gray); text-align: center;">
-                    Or email us directly at <a href="mailto:oswalpranav05@gmail.com" style="color: var(--secondary-blue);">oswalpranav05@gmail.com</a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 CA Prakash M Oswal & Co. All rights reserved.</p>
-        <p>Professional Chartered Accountancy Services | Pune, Maharashtra</p>
-    </footer>
-
-    <script>
-        function toggleMenu() 
+                                  placeholder="Share brief details 

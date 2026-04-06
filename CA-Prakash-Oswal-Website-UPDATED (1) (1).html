@@ -1,947 +1,715 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CA Prakash M Oswal & Co. - Legacy Expertise, Modern Financial Leadership</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/47f7f2f4-2c7f-44f6-8a82-03a6b83ead86">
-    <link rel="shortcut icon" type="image/x-icon" href="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/47f7f2f4-2c7f-44f6-8a82-03a6b83ead86">
-    <link rel="apple-touch-icon" href="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/47f7f2f4-2c7f-44f6-8a82-03a6b83ead86">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-blue: #002855;
-            --secondary-blue: #003d7a;
-            --accent-blue: #0056a8;
-            --light-blue: #e3f2fd;
-            --accent-orange: #ff7f32;
-            --text-dark: #1a1a1a;
-            --text-gray: #666;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --gradient-start: #002855;
-            --gradient-mid: #003d7a;
-            --gradient-end: #0056a8;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 60px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-blue);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-blue);
-        }
-
-        /* Hero Section */
-        .hero {
-            margin-top: 90px;
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 86, 168, 0.3) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(0, 61, 122, 0.3) 0%, transparent 50%);
-            z-index: 0;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-orange);
-            color: var(--white);
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-        }
-
-        .cta-button:hover {
-            background: #e66e28;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 127, 50, 0.4);
-        }
-
-        .hero-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        /* Statistics Section */
-        .stats {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-            padding: 4rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            z-index: 0;
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 3rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .stat-card {
-            text-align: center;
-            color: var(--white);
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            font-weight: 500;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 2rem;
-            background: var(--white);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            color: var(--primary-blue);
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 3rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            border-radius: 18px;
-            padding: 2.2rem 2rem;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-            box-shadow: 0 12px 35px rgba(0, 40, 85, 0.25);
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at top left, rgba(255,255,255,0.25), transparent 55%);
-            opacity: 0;
-            transition: opacity 0.35s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 18px 45px rgba(0, 40, 85, 0.35);
-        }
-
-        .service-card:hover::before {
-            opacity: 1;
-        }
-
-        .service-icon-wrapper {
-            width: 70px;
-            height: 70px;
-            border-radius: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            background: rgba(255,255,255,0.16);
-            backdrop-filter: blur(8px);
-        }
-
-        .service-icon-wrapper i {
-            font-size: 2rem;
-            color: #ffffff;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .service-card p {
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* Individual service gradients */
-        .service-audit    { background: linear-gradient(145deg, #0046a0, #001f4e); }
-        .service-tax      { background: linear-gradient(145deg, #00796b, #004d40); }
-        .service-account  { background: linear-gradient(145deg, #6a1b9a, #311b92); }
-        .service-internal { background: linear-gradient(145deg, #c2185b, #880e4f); }
-        .service-vcfo     { background: linear-gradient(145deg, #f57c00, #e65100); }
-        .service-ancil    { background: linear-gradient(145deg, #455a64, #263238); }
-
-        /* About Section */
-        .about {
-            background: var(--bg-light);
-            padding: 5rem 2rem;
-        }
-
-        .about-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 2fr;
-            gap: 3rem;
-            align-items: stretch;
-        }
-
-        .about-card {
-            background: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
-            border: 1px solid rgba(0, 61, 122, 0.1);
-            border-radius: 24px;
-            padding: 2.8rem 2.2rem;
-            box-shadow: 0 20px 50px rgba(0, 40, 85, 0.12);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-        }
-
-        .about-image-container {
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .about-image {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            box-shadow: 0 14px 40px rgba(0, 40, 85, 0.25);
-            border: 6px solid var(--white);
-            outline: 3px solid var(--accent-blue);
-            object-fit: cover;
-            margin: 0 auto 1.5rem;
-            display: block;
-        }
-
-        .about-name {
-            margin-top: 1rem;
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-
-        .about-title {
-            color: var(--text-gray);
-            font-size: 1rem;
-            margin-top: 0.25rem;
-        }
-
-        .about-card-tagline {
-            margin-top: 0.75rem;
-            font-size: 0.9rem;
-            color: var(--secondary-blue);
-            font-style: italic;
-            text-align: center;
-        }
-
-        .about-content {
-            align-self: center;
-        }
-
-        .about-content h2 {
-            color: var(--primary-blue);
-            font-size: 2.4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-content p {
-            color: var(--text-gray);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            padding: 5rem 2rem;
-            background: var(--white);
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.1fr 1.4fr;
-            gap: 3rem;
-        }
-
-        .contact-info h2 {
-            color: var(--primary-blue);
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: start;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-blue);
-            margin-right: 1rem;
-            min-width: 30px;
-        }
-
-        .contact-details h3 {
-            color: var(--primary-blue);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-details p {
-            color: var(--text-gray);
-            margin-bottom: 0.3rem;
-        }
-
-        .contact-details a {
-            color: var(--secondary-blue);
-            text-decoration: none;
-        }
-
-        .contact-details a:hover {
-            text-decoration: underline;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s;
-            overflow: hidden;
-            background: #ffffff;
-        }
-
-        .social-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .social-icon:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .map-wrapper {
-            margin-top: 1.5rem;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        /* Contact Form / Google Form */
-        .contact-form {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,40,85,0.18);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-blue);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 900px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                padding: 1rem;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hero-container,
-            .about-container,
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
-
-            .stat-number {
-                font-size: 2.5rem;
-            }
-
-            .about-card {
-                order: -1;
-            }
-        }
-
-        /* Scroll animation base */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>CA Prakash M Oswal & Co. – Chartered Accountants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --surface-alt: #f0eee8;
+      --border: #ddd7cc;
+      --text: #26231b;
+      --text-muted: #77736a;
+      --primary: #002855;
+      --primary-dark: #003d7a;
+      --accent: #ff7f32;
+      --radius: 10px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 246, 242, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-reports-btn {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 40, 85, 0.18);
+      transition: background 0.2s ease-out, transform 0.1s ease-out,
+        box-shadow 0.2s ease-out;
+    }
+
+    .nav-reports-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 40, 85, 0.25);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 1.8rem auto 2.2rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-left-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-heading {
+      font-size: 2.1rem;
+      line-height: 1.25;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-badge {
+      padding: 0.2rem 0.6rem;
+      font-size: 0.75rem;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 40, 85, 0.25);
+      transition: background 0.2s ease-out, transform 0.1s ease-out,
+        box-shadow 0.2s ease-out;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0, 40, 85, 0.32);
+    }
+
+    .btn-outline {
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s ease-out, border-color 0.2s ease-out;
+    }
+
+    .btn-outline:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+
+    .hero-right {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 1.3rem 1.2rem;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .hero-right-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .hero-right-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-right-items {
+      display: grid;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-right-item {
+      padding: 0.45rem 0.4rem;
+      border-radius: 10px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+
+    .hero-right-item strong {
+      display: block;
+      font-size: 0.8rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .section {
+      padding: 0 1.5rem 2.2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+      font-size: 0.85rem;
+    }
+
+    .service-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-body {
+      color: var(--text-muted);
+      font-size: 0.83rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .about-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 1.2rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+      font-size: 0.86rem;
+    }
+
+    .about-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .about-card p {
+      color: var(--text-muted);
+      font-size: 0.83rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-details {
+      font-size: 0.9rem;
+    }
+
+    .contact-details p {
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .contact-highlight {
+      font-weight: 600;
+      margin-top: 0.4rem;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 1.2rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+      font-size: 0.85rem;
+    }
+
+    .contact-card form {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .field {
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .field label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .field input,
+    .field textarea {
+      padding: 0.45rem 0.55rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.84rem;
+      outline: none;
+      transition: border-color 0.15s ease-out, box-shadow 0.15s ease-out;
+      resize: vertical;
+      min-height: 2.3rem;
+      font-family: inherit;
+      background: #fff;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(0, 40, 85, 0.25);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .two-col,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .hero {
+        margin-top: 1.2rem;
+      }
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
+  <div class="page">
     <header>
-        <nav>
-            <img src="PMO_Logo__1_-removebg-preview.png" alt="CA Prakash M Oswal & Co." class="logo">
-            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <div class="nav">
+        <div class="brand">
+          <div class="brand-title">CA PRAKASH M OSWAL & CO.</div>
+          <div class="brand-sub">Chartered Accountants · Pune</div>
+        </div>
+        <div class="nav-links">
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <!-- Right-most: opens second page -->
+          <a href="reports.html" class="nav-reports-btn">Reports</a>
+        </div>
+      </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Legacy Expertise.<br>Modern Financial Leadership</h1>
-                <p>Comprehensive chartered accountancy services built on trust, precision, and strategic insight</p>
-                <a href="#contact" class="cta-button">Get In Touch</a>
-            </div>
-            <img src="To be put beside legacy expertise.png" alt="Professional Business Services" class="hero-image">
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div>
+          <div class="hero-left-tag">
+            <span>Comprehensive chartered accountancy services</span>
+          </div>
+          <h1 class="hero-heading">
+            Precision in numbers, clarity in decisions, partners in your growth.
+          </h1>
+          <p class="hero-sub">
+            CA Prakash M Oswal & Co. delivers audit, tax, accounting, and advisory solutions
+            built on trust, technical depth, and a practical understanding of how businesses
+            actually operate.
+          </p>
+          <div class="hero-badges">
+            <span class="hero-badge">Audit & Assurance</span>
+            <span class="hero-badge">Taxation – Direct & GST</span>
+            <span class="hero-badge">Accounting & Bookkeeping</span>
+            <span class="hero-badge">Internal Audit & VCFO</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Get in touch</a>
+            <a href="reports.html" class="btn-outline">Explore reports</a>
+          </div>
         </div>
-    </section>
-
-    <!-- Statistics Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number">25+</div>
-                <div class="stat-label">Years of Experience</div>
+        <div class="hero-right">
+          <div class="hero-right-title">How we help clients</div>
+          <div class="hero-right-sub">
+            Integrated services from statutory compliance to strategic financial leadership.
+          </div>
+          <div class="hero-right-items">
+            <div class="hero-right-item">
+              <strong>Audit & Assurance</strong>
+              Robust statutory, tax, and internal audits with a risk-based approach
+              that strengthens internal controls and governance.
             </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number">150+</div>
-                <div class="stat-label">Clients Serving</div>
+            <div class="hero-right-item">
+              <strong>Taxation</strong>
+              End-to-end direct and indirect tax support, including tax planning,
+              GST compliance, audits, and representation before authorities.
             </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Sectors We Serve</div>
+            <div class="hero-right-item">
+              <strong>Virtual CFO & Advisory</strong>
+              Strategic financial leadership on a flexible basis – budgeting,
+              cash flow management, MIS, board reporting, and long-term planning.
             </div>
-            <div class="stat-card animate-on-scroll">
-                <div class="stat-number">20+</div>
-                <div class="stat-label">Team Members</div>
-            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive solutions tailored to your business needs</p>
-            
-            <div class="services-grid">
-                <!-- Audit & Assurance -->
-                <div class="service-card service-audit animate-on-scroll">
-                    <div class="service-icon-wrapper">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Audit &amp; Assurance</h3>
-                    <p>Enhancing financial credibility through robust statutory, tax, and internal audits with a risk-based, detail-oriented approach that strengthens internal controls and governance frameworks.</p>
-                </div>
-
-                <!-- Taxation -->
-                <div class="service-card service-tax animate-on-scroll">
-                    <div class="service-icon-wrapper">
-                        <i class="fas fa-scale-balanced"></i>
-                    </div>
-                    <h3>Taxation</h3>
-                    <p>End-to-end direct and indirect tax support including income tax planning, GST compliance, tax audits, return filing, and representation before authorities for optimized, compliant outcomes.</p>
-                </div>
-
-                <!-- Accounting & Bookkeeping -->
-                <div class="service-card service-account animate-on-scroll">
-                    <div class="service-icon-wrapper">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                    </div>
-                    <h3>Accounting &amp; Bookkeeping</h3>
-                    <p>Reliable accounting, bookkeeping, and financial statement preparation that keeps your records accurate, current, and decision-ready throughout the year.</p>
-                </div>
-
-                <!-- Internal Audit -->
-                <div class="service-card service-internal animate-on-scroll">
-                    <div class="service-icon-wrapper">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Internal Audit</h3>
-                    <p>Independent internal audits focused on process improvement, control testing, risk management, and compliance to strengthen organizational resilience and efficiency.</p>
-                </div>
-
-                <!-- Virtual CFO -->
-                <div class="service-card service-vcfo animate-on-scroll">
-                    <div class="service-icon-wrapper">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Virtual CFO</h3>
-                    <p>Strategic financial leadership on a flexible model, covering budgeting, forecasting, cash flow management, board reporting, and long-term capital planning.</p>
-                </div>
-
-                <!-- Ancillary Services -->
-                <div class="service-card service-ancil animate-on-scroll">
-                    <div class="service-icon-wrapper">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Ancillary Services</h3>
-                    <p>Support across formation, compliance, and growth phases including entity structuring, ROC and regulatory filings, due diligence, project reports, CMA data, MIS design, and process &amp; control advisory.</p>
-                </div>
+      <!-- Services -->
+      <section class="section" id="services">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-eyebrow">Services</div>
+            <h2 class="section-title">Comprehensive solutions for your business</h2>
+            <p class="section-subtitle">
+              From statutory compliance to strategic advisory, we support promoters,
+              CFOs, and business owners across every stage of the financial lifecycle.
+            </p>
+          </div>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-title">Audit & Assurance</div>
+              <div class="service-body">
+                Statutory audits, tax audits, limited reviews, and special purpose
+                audits with a focus on risk, controls, and governance.
+              </div>
             </div>
+            <div class="service-card">
+              <div class="service-title">Taxation – Direct & Indirect</div>
+              <div class="service-body">
+                Income tax planning, corporate and individual returns, GST registration,
+                compliances, audits, and representation before authorities.
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-title">Accounting & Bookkeeping</div>
+              <div class="service-body">
+                End-to-end bookkeeping, periodic financials, reconciliations, and
+                decision-ready MIS tailored to your business.
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-title">Internal Audit & Controls</div>
+              <div class="service-body">
+                Process reviews, risk-based internal audits, SOPs, and control design
+                to enhance efficiency, governance, and compliance.
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-title">Virtual CFO Services</div>
+              <div class="service-body">
+                Budgeting, forecasting, cash flow, dashboards, board packs, and
+                strategic finance support without full-time CFO cost.
+              </div>
+            </div>
+            <div class="service-card">
+              <div class="service-title">Business Formation & Structuring</div>
+              <div class="service-body">
+                Entity selection, ROC and regulatory filings, due diligence, project
+                reports, CMA data, and process & control advisory.
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-container">
-            <div class="about-card animate-on-scroll">
-                <div class="about-image-container">
-                    <img src="Untitled design (8).png" alt="CA Prakash Oswal" class="about-image">
-                    <p class="about-name">CA Prakash M Oswal</p>
-                    <p class="about-title">Founder &amp; Principal</p>
-                    <p class="about-card-tagline">Blending legacy expertise with modern financial insight.</p>
-                </div>
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-eyebrow">About</div>
+            <h2 class="section-title">CA Prakash M Oswal</h2>
+            <p class="section-subtitle">
+              Blending legacy expertise with modern financial insight to support
+              growing businesses, promoters, and professionals.
+            </p>
+          </div>
+          <div class="two-col">
+            <div class="about-card">
+              <h3>Practice overview</h3>
+              <p>
+                CA Prakash M Oswal & Co. is a full-service chartered accountancy firm
+                committed to delivering excellence in audit, taxation, accounting,
+                and advisory services. The firm serves a diverse clientele ranging
+                from startups and SMEs to established corporates across industries.
+              </p>
+              <p>
+                Our approach is grounded in integrity, technical depth, and a
+                practical understanding of how businesses work on the ground,
+                ensuring recommendations are implementable and outcome-focused.
+              </p>
+              <p>
+                Whether you need statutory compliance support, internal audits,
+                tax planning, or strategic financial guidance, we work as an
+                extended finance partner to your organisation.
+              </p>
             </div>
-            <div class="about-content animate-on-scroll">
-                <h2>About the Firm</h2>
-                <p>CA Prakash M Oswal &amp; Co. is a full-service chartered accountancy firm committed to delivering excellence in audit, taxation, accounting, and advisory services. Founded with a vision to provide holistic financial solutions, our practice serves a diverse clientele ranging from startups and SMEs to established corporates across various industries.</p>
-                <p>With years of experience and a team of dedicated professionals, we pride ourselves on understanding our clients' unique challenges and delivering tailored solutions that drive growth, ensure compliance, and enhance operational efficiency.</p>
-                <p>Our approach is rooted in integrity, technical expertise, and a commitment to building long-term relationships based on trust and results. Whether you need statutory compliance support, strategic financial guidance, or comprehensive business advisory, we are your reliable partner in navigating the complexities of the financial and regulatory landscape.</p>
+            <div class="about-card">
+              <h3>How we work</h3>
+              <p>
+                We invest time in understanding your business model, risk profile,
+                and key stakeholders before designing our audit or advisory approach.
+              </p>
+              <p>
+                Engagements are led by the principal with a trained team, ensuring
+                consistent quality, timely delivery, and clear communication
+                throughout the assignment.
+              </p>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <div class="contact-info">
-                <h2>Get In Touch</h2>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">📍</div>
-                    <div class="contact-details">
-                        <h3>Office Address</h3>
-                        <p>3rd Floor, Ganga Collidium,</p>
-                        <p>Office No. 304/305, Bibwewadi,</p>
-                        <p>Pune, Maharashtra 411037</p>
-                    </div>
-                </div>
-
-                <div class="map-wrapper">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.704035545635!2d73.861!3d18.541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2eaf4f9c1b7c7%3A0x0!2sGanga%20Collidium%2C%20Bibwewadi%2C%20Pune%20411037!5e0!3m2!1sen!2sin!4v1700000000000"
-                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-
-                <div class="contact-item" style="margin-top:1.5rem;">
-                    <div class="contact-icon">📞</div>
-                    <div class="contact-details">
-                        <h3>Phone</h3>
-                        <p><a href="tel:+918208448928">+91 8208448928</a></p>
-                        <p><a href="tel:+912024240127">+91 20 24240127</a></p>
-                        <p><a href="tel:+912024240976">+91 20 24240976</a></p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">✉️</div>
-                    <div class="contact-details">
-                        <h3>Email</h3>
-                        <p><a href="mailto:pmo.pune@yahoo.in">pmo.pune@yahoo.in</a></p>
-                        <p><a href="mailto:oswalpranav05@gmail.com">oswalpranav05@gmail.com</a></p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">🕒</div>
-                    <div class="contact-details">
-                        <h3>Business Hours</h3>
-                        <p>Monday - Saturday</p>
-                        <p>11:00 AM to 7:00 PM</p>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/company/prakash-m-oswal-and-co/" target="_blank" class="social-icon" title="LinkedIn">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
-                    </a>
-                    <a href="https://www.instagram.com/caprakashoswal.co?igsh=Z24ydjM4enQ2NmVt" target="_blank" class="social-icon" title="Instagram">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-                    </a>
-                </div>
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <div class="section-inner">
+          <div class="section-header">
+            <div class="section-eyebrow">Contact</div>
+            <h2 class="section-title">Let’s discuss your requirements</h2>
+            <p class="section-subtitle">
+              Share a brief about your organisation and requirements and we will
+              get back with a focused response instead of a generic pitch.
+            </p>
+          </div>
+          <div class="contact-grid">
+            <div class="contact-details">
+              <p class="contact-highlight">Office address</p>
+              <p>
+                3rd Floor, Ganga Collidium,<br />
+                Office No. 304/305, Bibwewadi,<br />
+                Pune, Maharashtra 411037
+              </p>
+              <p class="contact-highlight">Timings</p>
+              <p>Monday – Saturday · 11:00 AM to 7:00 PM</p>
+              <p class="contact-highlight">Email</p>
+              <p>
+                <a href="mailto:oswalpranav05@gmail.com">oswalpranav05@gmail.com</a>
+              </p>
             </div>
-
-            <div class="contact-form">
-                <h3 style="color: var(--primary-blue); margin-bottom: 1.5rem; font-size: 1.5rem;">Send us a Message</h3>
-                <form id="contact-form" action="https://formspree.io/f/mvzbjdzk" method="POST" style="max-width: 100%;">
-                    <input type="hidden" name="_subject" value="New Enquiry from CA Prakash M Oswal Website">
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div class="form-group">
-                            <label for="name" style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Name*</label>
-                            <input type="text" id="name" name="name" required 
-                                   style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-light); font-size: 0.95rem; transition: all 0.3s ease;"
-                                   placeholder="Your full name"
-                                   onfocus="this.style.borderColor='var(--primary-blue)'; this.style.background='rgba(255,255,255,0.08)';"
-                                   onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.05)';">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email" style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Email*</label>
-                            <input type="email" id="email" name="email" required 
-                                   style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-light); font-size: 0.95rem; transition: all 0.3s ease;"
-                                   placeholder="you@example.com"
-                                   onfocus="this.style.borderColor='var(--primary-blue)'; this.style.background='rgba(255,255,255,0.08)';"
-                                   onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.05)';">
-                        </div>
-                    </div>
-
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                        <div class="form-group">
-                            <label for="phone" style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Phone*</label>
-                            <input type="tel" id="phone" name="phone" required 
-                                   style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-light); font-size: 0.95rem; transition: all 0.3s ease;"
-                                   placeholder="+91-XXXXXXXXXX"
-                                   onfocus="this.style.borderColor='var(--primary-blue)'; this.style.background='rgba(255,255,255,0.08)';"
-                                   onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.05)';">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="service" style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Service Interested In*</label>
-                            <select id="service" name="service" required 
-                                    style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-light); font-size: 0.95rem; transition: all 0.3s ease; cursor: pointer;"
-                                    onfocus="this.style.borderColor='var(--primary-blue)'; this.style.background='rgba(255,255,255,0.08)';"
-                                    onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.05)';">
-                                <option value="" style="background: var(--dark-bg); color: var(--text-light);">Select a service</option>
-                                <option value="Statutory and Tax Audit" style="background: var(--dark-bg); color: var(--text-light);">Statutory and Tax Audit</option>
-                                <option value="Taxation and GST" style="background: var(--dark-bg); color: var(--text-light);">Taxation and GST</option>
-                                <option value="Accounting and Bookkeeping" style="background: var(--dark-bg); color: var(--text-light);">Accounting and Bookkeeping</option>
-                                <option value="Internal Audit and Controls" style="background: var(--dark-bg); color: var(--text-light);">Internal Audit and Controls</option>
-                                <option value="Virtual CFO Services" style="background: var(--dark-bg); color: var(--text-light);">Virtual CFO Services</option>
-                                <option value="Business Advisory and Compliance" style="background: var(--dark-bg); color: var(--text-light);">Business Advisory and Compliance</option>
-                                <option value="Other" style="background: var(--dark-bg); color: var(--text-light);">Other</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <label for="message" style="display: block; margin-bottom: 0.5rem; color: var(--text-light); font-weight: 500;">Message / Requirements</label>
-                        <textarea id="message" name="message" rows="5" 
-                                  style="width: 100%; padding: 0.75rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background: rgba(255,255,255,0.05); color: var(--text-light); font-size: 0.95rem; font-family: inherit; resize: vertical; transition: all 0.3s ease;"
-                                  placeholder="Share brief details about your requirements (optional)"
-                                  onfocus="this.style.borderColor='var(--primary-blue)'; this.style.background='rgba(255,255,255,0.08)';"
-                                  onblur="this.style.borderColor='rgba(255,255,255,0.1)'; this.style.background='rgba(255,255,255,0.05)';"></textarea>
-                    </div>
-
-                    <!-- Honeypot anti-spam field -->
-                    <div style="display: none;">
-                        <label for="_gotcha">Leave this empty</label>
-                        <input id="_gotcha" name="_gotcha" type="text">
-                    </div>
-
-                    <button type="submit" class="cta-button" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)); color: white; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);"
-                            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(0, 123, 255, 0.4)';"
-                            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(0, 123, 255, 0.3)';">
-                        Submit Enquiry
-                    </button>
-
-                    <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--text-gray); text-align: center;">
-                        By submitting this form, you consent to us contacting you regarding your enquiry.
-                    </p>
-                </form>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-gray); text-align: center;">
-                    Or email us directly at <a href="mailto:oswalpranav05@gmail.com" style="color: var(--secondary-blue);">oswalpranav05@gmail.com</a>
-                </p>
+            <div class="contact-card">
+              <form>
+                <div class="field">
+                  <label for="name">Name</label>
+                  <input id="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="field">
+                  <label for="org">Organisation</label>
+                  <input id="org" type="text" placeholder="Company / Firm name" />
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" placeholder="Your email address" />
+                </div>
+                <div class="field">
+                  <label for="msg">Brief about your requirement</label>
+                  <textarea id="msg" rows="4" placeholder="Audit, tax, internal audit, VCFO, or other support required"></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit enquiry</button>
+              </form>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 CA Prakash M Oswal &amp; Co. All rights reserved.</p>
-        <p>Professional Chartered Accountancy Services | Pune, Maharashtra</p>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> CA Prakash M Oswal & Co. All rights reserved.</div>
+        <div>Based in Pune · Serving clients across India</div>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    document.getElementById('navLinks').classList.remove('active');
-                }
-            });
-        });
-
-        // Header scroll effect
-        let lastScroll = 0;
-        const header = document.querySelector('header');
-
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll <= 0) {
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-                return;
-            }
-            
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                header.style.transform = 'translateY(0)';
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.15)';
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach((el, index) => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transitionDelay = `${index * 0.08}s`;
-            observer.observe(el);
-        });
-    </script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reports – CA Prakash M Oswal & Co.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f7f6f2;
+      --surface: #ffffff;
+      --surface-alt: #f0eee8;
+      --border: #ddd7cc;
+      --text: #26231b;
+      --text-muted: #77736a;
+      --primary: #002855;
+      --primary-dark: #003d7a;
+      --accent: #ff7f32;
+      --radius: 10px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 246, 242, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.8rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-link {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-reports-btn {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0, 40, 85, 0.18);
+      transition: background 0.2s ease-out, transform 0.1s ease-out,
+        box-shadow 0.2s ease-out;
+    }
+
+    .nav-reports-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0, 40, 85, 0.25);
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 1.8rem auto 1.8rem;
+      padding: 0 1.5rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-heading {
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+    }
+
+    .section {
+      padding: 0 1.5rem 2.2rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .reports-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 1.8rem;
+      align-items: flex-start;
+    }
+
+    .report-card {
+      background: var(--surface);
+      border-radius: 14px;
+      padding: 1.2rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      font-size: 0.9rem;
+    }
+
+    .report-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .report-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .report-description {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 40, 85, 0.25);
+      transition: background 0.2s ease-out, transform 0.1s ease-out,
+        box-shadow 0.2s ease-out;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(0, 40, 85, 0.32);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: background 0.2s ease-out, border-color 0.2s ease-out;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-alt);
+      border-color: var(--primary);
+    }
+
+    .report-sidebar {
+      display: grid;
+      gap: 0.8rem;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 0.9rem 0.9rem;
+      border: 1px solid var(--border);
+    }
+
+    .sidebar-card h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.25rem;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      margin-top: 1rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 1.5rem 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 880px) {
+      .reports-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+      .hero {
+        margin-top: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="brand-title">CA PRAKASH M OSWAL & CO.</div>
+          <div class="brand-sub">Chartered Accountants · Pune</div>
+        </div>
+        <div class="nav-links">
+          <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#services" class="nav-link">Services</a>
+          <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#about" class="nav-link">About</a>
+          <a href="CA-Prakash-Oswal-Website-UPDATED (1) (1).html#contact" class="nav-link">Contact</a>
+          <!-- Right-most: current page -->
+          <a href="reports.html" class="nav-reports-btn">Reports</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="hero-eyebrow">Reports & Thought Leadership</div>
+          <h1 class="hero-heading">Internal Audit in Real Life – Practical Report</h1>
+          <p class="hero-sub">
+            A practitioner’s view on how internal audit actually works inside organisations –
+            beyond textbook definitions – with a focus on process, risk, controls, and value
+            addition.
+          </p>
+          <div class="hero-meta">
+            <span class="hero-tag">Internal Audit</span>
+            <span class="hero-tag">Practical Report</span>
+            <span class="hero-tag">PDF</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-inner">
+          <div class="reports-grid">
+            <article class="report-card">
+              <h2 class="report-title">
+                Internal Audit in Real Life – Practical Report
+              </h2>
+              <p class="report-meta">
+                Category: Internal Audit · Format: PDF
+              </p>
+              <p class="report-description">
+                This report walks through the internal audit lifecycle as it plays out in real
+                organisations – from understanding the business and risk landscape, to planning
+                fieldwork, executing tests, interacting with process owners, and converting
+                observations into practical, accepted recommendations.
+              </p>
+              <p class="report-description">
+                It is designed for promoters, finance leaders, internal auditors, and students
+                who want an implementable, ground-level view of internal audit – not just
+                theoretical frameworks. The tone is conversational and example-driven, drawing
+                from real assignments handled by the firm.
+              </p>
+              <!-- IMPORTANT: put the PDF file in the same folder with this exact name or update the href -->
+              <a
+                href="Internal-Audit-in-Real-Life-Final.pdf"
+                class="btn-primary"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View PDF report
+              </a>
+            </article>
+
+            <aside class="report-sidebar">
+              <div class="sidebar-card">
+                <h3>How to use this report</h3>
+                <p>
+                  Share it with your internal teams, audit committee, or process owners to
+                  align expectations on what a meaningful internal audit engagement should
+                  deliver.
+                </p>
+              </div>
+              <div class="sidebar-card">
+                <h3>Future reports</h3>
+                <p>
+                  Additional reports on governance, risk management, controls, and taxation
+                  can be added on this page as they are authored. Each new report can be
+                  listed below with a similar card and download link.
+                </p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <div>© <span id="year"></span> CA Prakash M Oswal & Co. All rights reserved.</div>
+        <div>Internal audit, risk, and controls – practical insights from real assignments</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
